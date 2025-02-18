@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>НЕ УХОДИ</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+        body {
+            background: black;
+            color: red;
+            font-family: 'Creepster', cursive;
+            text-align: center;
+            font-size: 2em;
+            overflow: hidden;
+        }
+        .glitch {
+            position: relative;
+            display: inline-block;
+            animation: glitch 0.2s infinite;
+        }
+        @keyframes glitch {
+            0% { transform: translate(2px, 2px) skew(0.5deg); }
+            25% { transform: translate(-2px, -2px) skew(-0.5deg); }
+            50% { transform: translate(2px, -2px) skew(0.5deg); }
+            75% { transform: translate(-2px, 2px) skew(-0.5deg); }
+            100% { transform: translate(0, 0) skew(0deg); }
+        }
+        .static {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/noisy-net.png');
+            opacity: 0.1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="static"></div>
+    <p class="glitch" id="text">НЕ УХОДИ...</p>
+    <audio id="scarySound" src="https://www.myinstants.com/media/sounds/horror-tension.mp3" preload="auto" autoplay></audio>
+    <script>
+        function changeTextAndPlaySound(newText) {
+            document.getElementById('text').innerHTML = newText;
+            document.getElementById('scarySound').play();
+        }
+        
+        setTimeout(() => {
+            changeTextAndPlaySound('ТЫ ДУМАЛ ЭТО ШУТКА?');
+            setTimeout(() => {
+                changeTextAndPlaySound('ТЕПЕРЬ Я В ТЕБЕ...');
+            }, 3000);
+        }, 5000);
+    </script>
+</body>
+</html>
